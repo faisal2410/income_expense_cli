@@ -1,0 +1,12 @@
+[
+    {
+        "amount": 70000,
+        "category": "salary",
+        "date": "2024-06-10"
+    },
+    {
+        "amount": 100000,
+        "category": "Freelancing",
+        "date": "2024-01-01"
+    }
+]
