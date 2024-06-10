@@ -19,13 +19,12 @@ class FileStorageService
         if($content==false){
             return [];
         }
-        return json_decode($content,true);  //need explanation why true flag is used
-
+        return json_decode($content,true);  
     }
 
     private function writeFile(string $filePath, array $data):void
     {
-        file_put_contents($filePath, json_encode($data,JSON_PRETTY_PRINT));  //need explanation
+        file_put_contents($filePath, json_encode($data,JSON_PRETTY_PRINT));  
     }
 
     public function addIncome(Entry $entry):void
