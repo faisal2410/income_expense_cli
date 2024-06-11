@@ -41,7 +41,7 @@ $output = new ConsoleOutput();
 $io = new SymfonyStyle($input, $output);
 
 $io->title('Income & Expense Manager CLI');
-$io->text('Please select an option:');
+
 
 $options = [
     'income:add' => 'Add income',
@@ -49,13 +49,31 @@ $options = [
     'income:view' => 'View incomes',
     'expense:view' => 'View expenses',
     'savings:view' => 'View savings',
-    'category:view' => 'View categories'
+    'category:view' => 'View categories',
+    'exit'=>'Exit'
 ];
 
-$optionKeys = array_keys($options);
-$selection = $io->choice('Choose a command', $options);
+do{
+    $io->text('Please select an option:');
+    $selection = $io->choice('Choose a command', $options);
 
-$commandInput = new ArrayInput(['command' => $selection]);
-$app->run($commandInput);
+    if ($selection === 'exit') {
+        break; // Exit the loop if the user selects 'exit'
+    }
+
+    $commandInput = new ArrayInput(['command' => $selection]);
+    $app->run($commandInput);
+
+    $io->success('Command executed successfully!');
+
+}while(true);
+
+$io->success('Exiting the Income & Expense Manager CLI. Goodbye!');
+
+// $optionKeys = array_keys($options);
+// $selection = $io->choice('Choose a command', $options);
+
+// $commandInput = new ArrayInput(['command' => $selection]);
+// $app->run($commandInput);
 
 
