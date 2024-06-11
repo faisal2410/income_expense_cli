@@ -53,27 +53,24 @@ $options = [
     'exit'=>'Exit'
 ];
 
-do{
+
+while (true) {
     $io->text('Please select an option:');
     $selection = $io->choice('Choose a command', $options);
 
     if ($selection === 'exit') {
+        $io->success('Exiting the Income & Expense Manager CLI. Goodbye!');
         break; // Exit the loop if the user selects 'exit'
     }
 
     $commandInput = new ArrayInput(['command' => $selection]);
-    $app->run($commandInput);
 
-    $io->success('Command executed successfully!');
-
-}while(true);
-
-$io->success('Exiting the Income & Expense Manager CLI. Goodbye!');
-
-// $optionKeys = array_keys($options);
-// $selection = $io->choice('Choose a command', $options);
-
-// $commandInput = new ArrayInput(['command' => $selection]);
-// $app->run($commandInput);
-
+    try {
+        // $app->run($commandInput);
+        $app->doRun($commandInput, $output);
+        $io->success('Command executed successfully!');
+    } catch (Exception $e) {
+        $io->error('An error occurred: ' . $e->getMessage());
+    }
+}
 

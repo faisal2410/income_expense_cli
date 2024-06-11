@@ -8,5 +8,15 @@
         "amount": 100000,
         "category": "Freelancing",
         "date": "2024-01-01"
+    },
+    {
+        "amount": 80000,
+        "category": "consultancy",
+        "date": "2024-05-02"
+    },
+    {
+        "amount": 45000,
+        "category": "Consultancy",
+        "date": "2024-06-01"
     }
 ]
