@@ -18,5 +18,10 @@
         "amount": 45000,
         "category": "Consultancy",
         "date": "2024-06-01"
+    },
+    {
+        "amount": 45000,
+        "category": "salary",
+        "date": "2024-06-05"
     }
 ]
